@@ -1,0 +1,27 @@
+1.Select CodigoOficina, Ciudad from Oficinas;
+2.select count(CodigoEmpleado) as NumeroEmpleados from Empleados;
+3.select Pais, count(*) as TotalClientes from Clientes group by Pais;
+4.select avg(Cantidad) as PagoMedio2005 from Pagos where year(FechaPago) = 2005;
+5.select Estado, count(*) as TotalPedidos from Pedidos group by Estado order by TotalPedidos desc;
+6.select max(PrecioVenta) as PrecioMasCaro, min(PrecioVenta) as PrecioMasBarato from Productos;
+7.select Ciudad, Telefono from Oficinas where Pais = 'eeuu' or Pais = 'usa' or Pais = 'estados unidos';
+8.select Nombre, Apellido1, Apellido2, Email from Empleados where CodigoJefe = (select CodigoEmpleado from Empleados where Nombre = 'alberto' and Apellido1 = 'soria');
+9.select Puesto, Nombre, Apellido1, Apellido2, Email from Empleados where CodigoJefe is null;
+10.select Nombre, Apellido1, Apellido2, Puesto from Empleados where Puesto <> 'representante ventas';
+11.select count(*) as TotalClientes from Clientes;
+12.select NombreCliente from Clientes where Pais = 'españa';
+13.select Pais, count(*) as TotalClientes from Clientes group by Pais;
+14.select count(*) as ClientesMadrid from Clientes where Ciudad = 'madrid';
+15.select count(*) as TotalClientesM from Clientes where Ciudad like 'm%';
+16.select CodigoEmpleadoRepVentas, count(*) as CantidadClientes from Clientes where CodigoEmpleadoRepVentas is not null group by CodigoEmpleadoRepVentas;
+17.select count(*) as ClientesSinRep from Clientes where CodigoEmpleadoRepVentas is null;
+18.select min(FechaPago) as PrimerPago, max(FechaPago) as UltimoPago from Pagos;
+19.select distinct CodigoCliente from Pagos where year(FechaPago) = 2008;
+20.select distinct Estado from Pedidos;
+21.select CodigoPedido, CodigoCliente, FechaEsperada, FechaEntrega from Pedidos where FechaEntrega > FechaEsperada;
+22.select CodigoPedido, NumeroLinea, Cantidad from DetallePedidos;
+23.select CodigoProducto, sum(Cantidad) as TotalCantidadPedida from DetallePedidos group by CodigoProducto order by TotalCantidadPedida desc limit 20;
+24.select CodigoPedido, CodigoCliente, FechaEsperada, FechaEntrega from Pedidos where FechaEntrega <= adddate(FechaEsperada, interval -2 day);
+25.select sum(PrecioUnidad * Cantidad) as BaseImponible, sum(PrecioUnidad * Cantidad) * 0.18 as Iva, sum(PrecioUnidad * Cantidad) * 1.18 as TotalFacturado from DetallePedidos;
+26.select CodigoProducto, sum(PrecioUnidad * Cantidad) as BaseImponible, sum(PrecioUnidad * Cantidad) * 0.18 as Iva, sum(PrecioUnidad * Cantidad) * 1.18 as TotalFacturado from DetallePedidos where CodigoProducto like 'fr%' group by CodigoProducto;
+
