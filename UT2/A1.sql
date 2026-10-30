@@ -1,7 +1,7 @@
 1.Select CodigoOficina, Ciudad from Oficinas;
 2.select count(CodigoEmpleado) as NumeroEmpleados from Empleados;
 3.select Pais, count(*) as TotalClientes from Clientes group by Pais;
-4.select avg(Cantidad) as PagoMedio2005 from Pagos where year(FechaPago) = 2005;
+4.select avg(Cantidad) as PagoMedio2006 from Pagos where year(FechaPago) = 2006;
 5.select Estado, count(*) as TotalPedidos from Pedidos group by Estado order by TotalPedidos desc;
 6.select max(PrecioVenta) as PrecioMasCaro, min(PrecioVenta) as PrecioMasBarato from Productos;
 7.select Ciudad, Telefono from Oficinas where Pais = 'EEUU';
